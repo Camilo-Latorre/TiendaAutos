@@ -1,0 +1,19 @@
+<link rel="stylesheet" href="../css/styles.css">
+<%- include('../views/layaouts/header', {title: 'Giro-Grafia'}); -%>
+
+<div class="card" style="width: 18rem;">
+    <img src="./jpgmp4/CARROCATEGORIA3.jpg" class="card-img-top" alt="...">    <div class="card-body">
+        <div class="card-body">
+      <h5 class="card-title"><%= Autos3.id %></h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item"> NOMBRE : <%= Autos3.name</li>
+      <li class="list-group-item"> MARCA : <%= Autos3.marca</li>
+      <li class="list-group-item"> PRECIO: <%= Autos3.price</li>
+    </ul>
+    <div class="card-body">
+      <a href="#" class="card-link">Card link</a>
+      <a href="#" class="card-link">Another link</a>
+    </div>
+  </div>

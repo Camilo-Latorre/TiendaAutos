@@ -9,11 +9,11 @@ import {
 
 const router = Router()
 
-router.get("/categorias", getCATEGORIA);
-router.post("/categorias", createCategoria);
-router.put("/categorias/:id", updateCategoria);
-router.delete("/categorias/:id", deleteCategoria);
-router.get("/categorias/:id", getCategorias);
+router.get("/Girografia", getCATEGORIA);
+router.post("/Girografia", createCategoria);
+router.put("/Girografia/:id", updateCategoria);
+router.delete("/Girografia/:id", deleteCategoria);
+router.get("/Girografia/:id", getCategorias);
 
 
 export default router;

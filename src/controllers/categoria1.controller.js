@@ -1,11 +1,11 @@
 import { Autos1 } from "../models/Categoria1.js"
 
 
-export const ObtenerAuto = async (req, res) => {
+export const ObtenerAutoDepor = async (req, res) => {
     try{
 
      const AutosDeportivo = await Autos1.findAll();
-     res.json(AutosDeportivo)
+     res.render(AutosDeportivo)
 }catch (error){
     return res.status(500).json({message: error.message});
 

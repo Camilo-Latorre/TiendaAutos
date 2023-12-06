@@ -1,17 +1,17 @@
 import {Router} from "express";
-import { ObtenerAuto, 
+import { ObtenerAutoDepor, 
     ObtenerAutoDeportivo, 
     crearAuto, 
     deleteAuto, 
     updateAuto 
 } from "../controllers/categoria1.controller.js";
 
-const router = Router()
+const rut = Router()
 
-router.get("/categoria", ObtenerAuto);
-router.post("/categoria", crearAuto);
-router.put("/categoria/:id", updateAuto);
-router.delete("/categoria/:id", deleteAuto);
-router.get("/categoria/:id", ObtenerAutoDeportivo);
+rut.get("/categoria", ObtenerAutoDepor);
+rut.post("/categoria", crearAuto);
+rut.put("/categoria/:id", updateAuto);
+rut.delete("/categoria/:id", deleteAuto);
+rut.get("/categoria/:id", ObtenerAutoDeportivo);
 
-export default router;
+export default rut;

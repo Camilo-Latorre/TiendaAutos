@@ -2,6 +2,7 @@ import app from './app.js';
 import {sequelize} from "./database/database.js";
 import enviarCorreo from './controllers/correos.js';
 
+
 enviarCorreo();
 
 async function main() {

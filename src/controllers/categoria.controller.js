@@ -4,7 +4,7 @@ export const getCATEGORIA = async  (req,res) => {
 try{    
     
     const Categorias = await AutosDB.findAll()
-    res.json(Categorias)
+    res.render('index.ejs',{Categorias})
 } catch (error) {
     return res.status(500).json({message: error.message});
 
