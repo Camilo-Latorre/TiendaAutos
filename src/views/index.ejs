@@ -2,6 +2,55 @@
 <%- include('../views/layaouts/header', {title: 'Giro-Grafia'}); -%>
 
 
+<div>
+  <form method="get" action="">
+    <label for="categoria">Selecciona una categoria:</label>
+    <select id="categoria" name="categoria">
+      <% AutosDB.forEach(function(auto) { %>
+        <option value="<%= auto.id %>"><%= auto.tipoAuto %></option>
+      <% }); %>
+    </select>
+    <button type="submit" onclick="filtrarPorCategoria()">Filtrar</button>
+
+    <div id="resultados" action="" method ="get">
+    </div>
+
+    <script src="script.js">
+      function filtrarPorCategoria() {
+      var categoriaSeleccionada = document.getElementById('categoria').value;
+
+  fetch(`/src/routes/CATEGORIAS.routes.js=${categoriaSeleccionada}`)
+    .then(response => response.json())
+    .then(data => {
+      mostrarResultados(data);
+    })
+    .catch(error => {
+      console.error('Error al obtener resultados:', error);
+    });
+}
+
+function mostrarResultados(resultados) {
+  var resultadosPuesto = document.getElementById('resultados');
+  resultadosPuesto.innerHTML = ''; 
+
+  if (resultados.length > 0) {
+    var listaResultados = document.createElement('ul');
+
+    resultados.forEach(function(auto) {
+      var listItem = document.createElement('li');
+      listItem.textContent = auto.Nombre;
+      listaResultados.appendChild(listItem);
+    });
+
+    resultadosPuesto.appendChild(listaResultados);
+  } else {
+    resultadosPuesto.innerHTML = '<p>No se encontraron autos en la categoría seleccionada.</p>';
+  }
+}
+    </script>
+  </form>
+</div>
+
 <div class="card-completo">
 
   <div class="card" style="width: 18rem;">
@@ -10,7 +59,7 @@
       <p class="card-text">Aceleracion, velocidad, atraccion.</p>
       <div class="row">
         <li class="btn">
-          <a class="btn-outline-secondary" href="/categorias3">
+          <a class="btn-outline-secondary" href="/categoria">
                 Mas información
             </a>
         </li> 
@@ -27,7 +76,7 @@
       <p class="card-text">Armonioso, equilibrado, calidad.</p>
       <div class="row">
         <div class="col-12 d-grid">
-            <a href="/deportivos" class="btn btn-outline-secondary">
+            <a href="/categorias2" class="btn btn-outline-secondary">
                 Mas información
             </a>
         </div>

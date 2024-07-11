@@ -24,6 +24,7 @@ export const Autos1 = sequelize.define('AutosDeportivos', {
     correo :{
         type : DataTypes.STRING
     },
+   
 },
     {
         timestamps: true 

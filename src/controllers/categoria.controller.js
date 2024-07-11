@@ -1,10 +1,32 @@
 import{AutosDB} from "../models/Categorias.js"
 
+export const GetCategoria = async (req,res) => {
+    const categoriaSeleccionada = req.query.categoria;
+
+    //const autosFiltrados = obtenerAutosPorCategoria(categoriaSeleccionada);
+  
+    //res.render(autosFiltrados);
+  };
+
+
+  export async function obtenerAutosPorCategoria(autosFiltrados) {
+    try {
+      const autosFiltrados = await AutosDB('SELECT * FROM autos WHERE autoTipo = $1', null);
+      return autosFiltrados;
+    } catch (error) {
+      console.error('Error al obtener autos por categoría:', error);
+      throw error;
+    }
+  }
+  
+
+  
+
 export const getCATEGORIA = async  (req,res) => {
 try{    
     
     const Categorias = await AutosDB.findAll()
-    res.render('index.ejs',{Categorias})
+    res.render('index.ejs',{AutosDB: Categorias})
 } catch (error) {
     return res.status(500).json({message: error.message});
 
@@ -14,8 +36,6 @@ try{
 
 export const getCategorias = async (req, res) => {
     try{
-
-
     const {id} = req.params;
     const categorias = await AutosDB.findOne({
         where:{
@@ -23,7 +43,7 @@ export const getCategorias = async (req, res) => {
               },
     });
     if(!categorias) return res.status(404).json({message: 'Categoria no existente.'});
-    res.json(categorias)
+    res.render(categorias)
 }catch (error) {
     return res.status(500).json({message: error.message});
                 }
@@ -83,3 +103,4 @@ export const deleteCategoria = async (req,res) => {
                 return res.status(500).json({message: error.message});
         }
 };
+

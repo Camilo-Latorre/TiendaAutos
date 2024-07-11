@@ -5,7 +5,7 @@ export const ObtenerAuto = async (req, res) => {
     try{
 
      const AutosClasico = await Autos2.findAll();
-     res.render('index.ejs', {AutosClasico})
+     res.render('index.ejs', {Autos2 : AutosClasico})
 }catch (error){
     return res.status(500).json({message: error.message});
 

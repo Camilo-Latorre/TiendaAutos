@@ -5,7 +5,7 @@ export const ObtenerAutoDepor = async (req, res) => {
     try{
 
      const AutosDeportivo = await Autos1.findAll();
-     res.render(AutosDeportivo)
+     res.render('index.ejs',{Autos1 :AutosDeportivo})
 }catch (error){
     return res.status(500).json({message: error.message});
 

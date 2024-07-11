@@ -22,6 +22,8 @@ app.use(express.json());
 app.use(CATEGORIASRoutes);
 app.use(CategoriasRouter);
 app.use(bodyParser.json());
+app.use(rutas);
+app.use(enlaces);
 
 app.use(express.static(join(__dirname, 'public')));
 
@@ -30,6 +32,7 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static('public'));
+
 
 
 
